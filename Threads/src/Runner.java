@@ -6,11 +6,11 @@ import java.util.Scanner;
 public class Runner {
     public static void main(String[] args) throws InterruptedException {
         Scanner scan = new Scanner(System.in);
-        System.out.println("Введите число потоков: ");
+        System.out.println("Введите количество потоков: ");
         int countOfThreads = scan.nextInt();
-        System.out.println("Введите число А: ");
+        System.out.println("Введите число а, большее количества потоков в 2 и более раз: ");
         int maxValue = scan.nextInt();
-        System.out.println("Enter operation sign ('1 - сложение', '2 - вычитание', '3 - умножение");
+        System.out.println("Выберите тип операции ('1 - сложение', '2 - вычитание', '3 - умножение");
         String operationType = scan.next();
 
         OperationType op = OperationType.ADDITION;
@@ -29,9 +29,8 @@ public class Runner {
                 System.out.println("Ошибка! Выберите один из предложенных вариантов");
         }
 
-        ThreadGenerator calculator;
-        calculator = new ThreadGenerator(countOfThreads, op, maxValue);
+        ThreadGenerator calculator = new ThreadGenerator(countOfThreads, op, maxValue);
         calculator.execute();
-        System.out.println("Вывод: " + calculator.getResult());
+        System.out.println("Результат (2а+1)!: " + calculator.getResult());
     }
 }

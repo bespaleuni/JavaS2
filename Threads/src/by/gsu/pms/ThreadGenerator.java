@@ -8,7 +8,7 @@ public class ThreadGenerator {
         this.operationType = operationType;
 
         System.out.println("Количество потоков: " + countOfThreads +
-                "\nЧисло пользователя: " + maxValue +
+                "\nЧисло, введенное пользователем: " + maxValue +
                 "\nТип операции: " + operationType);
 
         if (maxValue > countOfThreads && maxValue % countOfThreads == 0) {
@@ -22,7 +22,7 @@ public class ThreadGenerator {
             }
             this.threads = arrayThreads;
         } else {
-            System.out.println("Ошибка! Число пользователя должно быть больше введенного числа потоков! ");
+            System.out.println("Ошибка! Число пользователя должно быть больше введенного числа потоков в 2 и более раз! ");
         }
     }
 

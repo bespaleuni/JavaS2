@@ -10,18 +10,15 @@ public class CalculatorThread extends Thread {
     }
 
     public CalculatorThread(int minValue, int maxValue) {
-        this.maxValue = maxValue;
         this.minValue = minValue;
+        this.maxValue = maxValue;
     }
 
     @Override
     public void run() {
         String threadName = Thread.currentThread().getName();
         System.out.println("Thread " + threadName + " starting ");
-        for (int i = this.minValue; i <= this.maxValue * 2 + 1; i++) {
-            if (i % 2 != 0)
-                this.result *= i;
-
-        }
+        for (int i = this.minValue; i <= this.maxValue * 2 + 1; i++)
+            this.result *= i;
     }
 }
