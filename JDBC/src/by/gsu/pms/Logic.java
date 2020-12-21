@@ -25,12 +25,12 @@ public class Logic {
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.isBeforeFirst()) {
                     final int WORD_MEANING_INDEX = 1;
-                    logger.info("Translation:");
+                    System.out.println("Translation:");
                     while (rs.next()) {
-                        logger.info(rs.getString(WORD_MEANING_INDEX));
+                        System.out.println(rs.getString(WORD_MEANING_INDEX));
                     }
                 } else {
-                    logger.info("The word is missing from the dictionary");
+                    System.out.println("The word is missing from the dictionary");
                 }
             }
         }

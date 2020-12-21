@@ -14,7 +14,7 @@ public class Connect {
         final String connectionFooter = "?serverTimezone=Europe/Minsk";
 
         dataSource = new MysqlDataSource();
-        dataSource.setUrl(connectionHeader + "dbName" + connectionFooter);
+        dataSource.setUrl(connectionHeader + "jdbc_lab" + connectionFooter);
         dataSource.setUser("root");
         dataSource.setPassword("");
     }

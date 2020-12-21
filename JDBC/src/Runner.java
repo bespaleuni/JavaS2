@@ -4,7 +4,6 @@ import by.gsu.pms.Const;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.ResourceBundle;
 import java.util.Scanner;
 
 public class Runner {
@@ -13,8 +12,7 @@ public class Runner {
         final String ENGLISH_WORDS_REGEX = "^[a-zA-Z]+$";
         final String RUSSIAN_WORDS_REGEX = "^[а-яА-ЯёЁ]+$";
 
-        ResourceBundle rb = ResourceBundle.getBundle("jdbc");
-        Connect.init(rb.getString("db.name"), rb.getString("db.user"), rb.getString("db.password"));
+        Connect.init("jdbc_lab", "root", "");
 
         try (Scanner sc = new Scanner(System.in);
              Connection connection = Connect.getConnection()) {
@@ -22,7 +20,6 @@ public class Runner {
             String searchingWord;
 
             while (true) {
-                logger.info("Enter a word for translation or exit to stop it:");
                 searchingWord = sc.next();
 
                 if (searchingWord.equals("exit")) {
@@ -34,11 +31,11 @@ public class Runner {
                 } else if (searchingWord.matches(RUSSIAN_WORDS_REGEX)) {
                     Logic.translate(searchingWord, connection, Const.SELECT_RUSSIAN_WORLD_TRANSLATION);
                 } else {
-                    logger.warn("The word is incorrect");
+                    System.out.println("The word is incorrect");
                 }
             }
         } catch (SQLException e) {
-            logger.error(e.getMessage());
+            System.out.println(e.getMessage());
         }
     }
 }
