@@ -2,6 +2,7 @@ package by.gsu.pms;
 
 import com.mysql.cj.jdbc.MysqlDataSource;
 
+import java.sql.Connection;
 import java.sql.SQLException;
 
 public class Connect {
